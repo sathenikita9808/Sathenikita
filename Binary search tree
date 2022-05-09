@@ -1,0 +1,118 @@
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+struct word
+{
+char key[15];
+char meaning[20];
+};
+struct node
+{
+word data;
+node *left, *right;
+};
+class BST
+{
+public:
+node *root;
+BST()
+{
+root=NULL;
+}
+ 
+node *create_BST();
+node *insert(node *,word);
+void display(node *);
+ 
+};
+node *BST ::create_BST()
+{
+int n,i;
+word x;
+cout<<"Enter Total Number Of Node :";
+cin>>n;
+ 
+for(i=0;i<n;i++)
+{
+cout<<"Enter data :";
+cin>>x.key;
+cout<<"Enter Meaning :";
+cin>>x.meaning;
+root=insert(root,x);
+}
+ 
+return root;
+}
+node *BST :: insert(node *T,word x)
+{
+if(T==NULL)
+{
+T= new node ;
+T->data=x;
+T->left=NULL;
+T->right=NULL;
+ 
+return T;
+}
+else
+{
+if(strcmp(x.key,T->data.key)>0)
+{
+T->right=insert(T->right,x);
+return T;
+}
+ 
+if(strcmp(x.key,T->data.key)<0)
+{
+T->left=insert(T->left,x);
+return T;
+}
+ 
+}
+}
+void BST ::display(node * T)
+{
+ 
+if(T!=NULL)
+{
+display(T->left);
+cout<<"("<<T->data.key<<" - "<<T->data.meaning<<")";
+display(T->right);
+}
+}
+int main()
+{
+BST b1;
+int ch;
+word x1;
+char ans;
+do
+{
+cout<<" \n MAIN MENU \n 1. Create \n 2. Insert \n 3.Display ";
+cout<<"\n\n Enter your choice : ";
+cin>>ch;
+switch(ch)
+{
+case 1:
+b1.root=b1.create_BST();
+break;
+case 2:
+cout<<"\nData : ";
+cin>>x1.key;
+cout<<"\nMeaning : ";
+cin>>x1.meaning;
+b1.root=b1.insert(b1.root,x1);
+break;
+case 3:
+cout<<"\nTHE BST TREE in INORDER : ";
+b1.display(b1.root);
+break;
+ 
+}
+cout<<"\n\n Do You Want To Go Main menu? ";
+cin>>ans;
+}while(ans=='y');
+ 
+return 0;
+}
