@@ -449,7 +449,7 @@ int main()
   cout<<"Enter Word to Delete: ";
  
  
-           cin>>word
+           cin>>word;
  
            if(oxford.deleteWord(word))
   
