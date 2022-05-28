@@ -1,13 +1,21 @@
 #include <iostream>
+
 using namespace std;
+
 const int MAX=100;
+
 class dictionary;
+
 class node
  {
   string key,value;
-   node *next;
-  public:
-   friend class dictionary;
+  
+
+ node *next;
+  
+public:
+   
+friend class dictionary;
   node()
   {
    next=NULL;
@@ -436,17 +444,12 @@ int main()
            break;
  
  
-         
-  
+          case 3:
  
-           case 3:
- 
-
-           cout<<"Enter Word to Delete: ";
+  cout<<"Enter Word to Delete: ";
  
  
-           cin>>word;
- 
+           cin>>word
  
            if(oxford.deleteWord(word))
   
@@ -473,27 +476,14 @@ int main()
   
  
                 cout<<"\nWrong Choice.";
- 
- 
-    }
+   }
   
- 
- 
- 
  }
   
- 
- 
- 
- 
  while(choice!=0);
- 
- 
- 
  
  return 0;
   
- 
-}
+ }
  
  
